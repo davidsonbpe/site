@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>App Novo</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+    <div class="app" id="app">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+            <a class="navbar-brand" href="">DECOMST</a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                <ul class="navbar-nav mr-auto filters">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Todos" v-on:click="filterTodos('all')">Todos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Completo" v-on:click="filterTodos('complete')">Completo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Incompleto" v-on:click="filterTodos('incomplete')">Incompleto</a>
+                    </li>
+                </ul>
+
+                <form class="form-inline my-2 my-lg-0" v-on:submit="addTodo">
+                    <input class="form-control mr-sm-2" type="txt" placeholder="add" aria-label="add" v-model="inputVal" />
+
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-plus"></i></button>
+                </form>
+
+            </div>
+        </nav>
+        
+        <div class="space" style="padding-top: 60px;"></div>
+
+        <div class="container">
+
+            <transition-group tag="ol" name="list" class="list-group list-group-flush">
+
+                <li class="list-group-item" v-bind:class="{ complete: todo.complete }" v-bind:key="index" v-for="(todo, index) in filteredTodos">
+
+                    <button class="btn btn-link text-dark" v-on:click="toggleTodo(todo)">
+                        {{ todo.text }}
+                    </button>
+
+                    <button class="btn btn-link text-dark float-right" v-on:click="deleteTodo(index)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+
+                </li>
+
+            </transition-group>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
