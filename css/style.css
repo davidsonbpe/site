@@ -1,3 +1,60 @@
+
+/*------tema-dark------*/
+body.dark-theme {
+    background-color: #333;
+}
+
+body.dark-theme h2,
+body.dark-theme p {
+    color: #ddd;
+}
+
+/*------tema-dark------*/
+
+/*------botoo-------*/
+.toggle input[type=checkbox] {
+    display: none;
+}
+
+.toggle label {
+    background-color: #777;
+    border: 2px solid #555;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: all ease-in-out 0.3s;
+    width: /*100px*/81px;
+    height: /*50px*/30px;
+}
+
+.toggle label::after {
+    background-color: #555;
+    border-radius: 50%;
+    content: ' ';
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    transition: all ease-in-out 0.3s;
+    width: /*42px*/22px;
+    height: /*42px*/22px;
+}
+
+.toggle input[type=checkbox]:checked ~ label {
+    background-color: #00a0fc;
+    border-color: #006dc9;
+}
+
+.toggle input[type=checkbox]:checked ~ label::after {
+    background-color: #0054B0;
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+}
+
+/*------botoo-------*/
+
 @-webkit-keyframes appear {
   0% {
     opacity: 0;
