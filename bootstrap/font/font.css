@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'Roboto';
+	src: local('Roboto'), url('./Roboto.ttf') format('truetype');
+}
+
+.fontsforweb_fontid_11195 {
+	font-family: 'Roboto' !important;
+}
