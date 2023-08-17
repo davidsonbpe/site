@@ -522,10 +522,10 @@ a span:first-child {
           filter: invert(1);
 }
 
-#Heroku {
+#Niotron {
   background: #430098;
 }
-#Heroku img {
+#Niotron img {
   -webkit-filter: invert(1);
           filter: invert(1);
 }
